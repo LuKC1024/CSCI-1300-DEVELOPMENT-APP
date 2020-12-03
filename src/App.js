@@ -249,7 +249,7 @@ class App extends Component {
             <legend>Filters:</legend>
             <button onClick={handleResetFilters}>Reset</button>
             <fieldset>
-              <legend>By-count</legend>
+              <legend>By-count:</legend>
               <ul>
                 <li>
                   <label>
