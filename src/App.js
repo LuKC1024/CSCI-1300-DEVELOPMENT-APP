@@ -41,7 +41,8 @@ const COUNT_STYLE = {
   paddingRight: '.5em',
 }
 
-const THEAD_STYLE = { backgroundColor: 'sandybrown', color: 'white', width: '100%', height: '100%' };
+const THEAD_STYLE = { backgroundColor: 'black', color: 'white', width: '100%', height: '100%' };
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -216,7 +217,7 @@ class App extends Component {
       });
     const Summary = makeTableViewer(
       ['name', 'price', 'count', 'total'],
-      (s) => s.toLocaleUpperCase(),
+      (s) => renderHead(s.toLocaleUpperCase()),
       {
         name: ({ name }) => <span style={NAME_STYLE}>{name.toLocaleUpperCase()}</span>,
         price: ({ price }) => <span style={PRICE_STYLE}>${price.toFixed(2)}</span>,

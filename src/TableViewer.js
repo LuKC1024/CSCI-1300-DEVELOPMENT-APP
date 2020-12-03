@@ -23,8 +23,11 @@ const makeTableViewer = (thead, renderHead, renderCell, spacingCell) => {
                 const { data, start, limit } = oldState;
                 switch (cmd.kind) {
                     case "inc": {
+                        if (start + limit >= data.length) {
+                            return null;
+                        }
                         return {
-                            start: Math.min(start + limit, data.length - limit)
+                            start: start + limit
                         };
                     }
                     case "dec": {
@@ -86,10 +89,10 @@ const makeTableViewer = (thead, renderHead, renderCell, spacingCell) => {
                         </div> */}
                         <div>
                             showing {(start < end) ? ((start + 1) + "-" + end) : "none"} of {data.length}&nbsp;
-                            <button onClick={handleFastDec} disabled={start === 0}>≪</button>
-                            <button onClick={handleDec} disabled={start === 0}>&lt;</button>
-                            <button onClick={handleInc} disabled={end === data.length}>&gt;</button>
-                            <button onClick={handleFastInc} disabled={end === data.length}>≫</button>
+                            {/* <button onClick={handleFastDec} disabled={start === 0}>≪</button> */}
+                            <button title="last page" onClick={handleDec} disabled={start === 0}>&lt;</button>
+                            <button title="next page" onClick={handleInc} disabled={end === data.length}>&gt;</button>
+                            {/* <button onClick={handleFastInc} disabled={end === data.length}>≫</button> */}
                         </div>
                     </div>
                     <table style={{ gridTemplateColumns: thead.map((s) => spacingCell[s]).join(" ") }}>
