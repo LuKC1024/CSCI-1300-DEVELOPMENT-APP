@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: auto 1fr;
-  gap: 1em;
+  gap: .5em 1em;
   padding: 1em;
   background-color: lightcoral;
   width: 100%;
