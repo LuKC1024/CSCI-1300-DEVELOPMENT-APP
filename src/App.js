@@ -267,6 +267,7 @@ class App extends Component {
                 </li>
               </ul>
             </fieldset>
+            and
             <fieldset>
               <legend>By-color:</legend>
               <ul>
